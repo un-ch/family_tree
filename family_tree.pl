@@ -36,10 +36,10 @@ grandparent(Grandparent, Grandchild) :-
 grandchild(Grandchild, Grandparent) :-
       grandparent(Grandparent, Grandchild).
 
+/* FIXME: returns correct answer, but then "false" appeares: */
 father(Dad, Child) :-
       man(Dad),
       child(Child, Dad).
-	  /* FIXME: returns correct answer, but then "false" */
 
 mother(Mom, Child) :- 
       woman(Mom),
@@ -78,14 +78,16 @@ sister(Sister, Person) :-
 	woman(Sister),
 	sibling(Sister, Person).
 
-uncle(Uncle, Person) :- /*correct answer but twice */
+/* FIXME: the answer printed twice: */
+uncle(Uncle, Person) :-
 	man(Uncle),
 	grandparent(Grandparent, Person),
 	grandchild(Grandchild, Grandparent),
 	Grandchild \= Person,
 	parent(Uncle, Grandchild).
 	
-aunt(Aunt, Person) :- /*correct answer but twice */
+/* FIXME: the answer printed twice: */
+aunt(Aunt, Person) :-
 	woman(Aunt),
 	grandparent(Grandparent, Person),
 	grandchild(Grandchild, Grandparent),
