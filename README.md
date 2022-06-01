@@ -1,2 +1,1 @@
-# family_tree
-
+The project within Discrete Mathematics course
